@@ -1,0 +1,2 @@
+Next Js
+styled-components

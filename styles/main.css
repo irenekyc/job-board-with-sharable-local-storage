@@ -7,6 +7,10 @@ body{
     font-family: monospace;
     color: var(--lightText);
     background: #EEEEEE;
+    display:grid;
+min-height: 100vh;
+width:100vw;
+grid-template-rows: 1fr 60px
 }
 
 h1, h2, h3{
@@ -16,4 +20,309 @@ h1, h2, h3{
     padding:0;
     margin:0;
     box-sizing: border-box;
+}
+
+a{
+    text-decoration:none;
+}
+img{
+    height: 100%;
+}
+
+/**************** NAV BAR *******************/
+
+nav{
+    display:grid;
+grid-template-columns: 100px 1fr 100px;
+place-items:center;
+top:0;
+left:0;
+padding: 0 60px;
+width:100vw;
+position:fixed;
+box-shadow: 5px 5px 10px rgba(0,0,0,0.05);
+height: 60px;
+background: white;
+}
+
+
+
+.input-bar{
+    outline: none;
+height:28px;
+line-height: 28px;
+padding: 0 8px;
+border-radius: 4px;
+font-size: inherit;
+font-family:inherit;
+border: 1px solid var(--lightText);
+margin: 0 10px;
+width: 200px;
+}
+
+.search-button{
+    background: var(--primary);
+color: white;
+font-size:inherit;
+font-family:inherit;
+font-weight:500;
+outline:none;
+border:none;
+height: 28px;
+line-height:28px;
+padding: 0 28px;
+border-radius: 12px;
+cursor: pointer;
+}
+
+.search-button:hover{
+    filter: brightness(1.1);
+}
+
+
+/***************** MAIN ********************/
+
+main{
+    padding-top: 150px;
+    width:100%;
+    min-height:100vh;
+display:grid;
+place-items:center;
+}
+
+/**************** PAGINATION ROW ***************/
+
+.pagination-row{
+    position:fixed;
+    width:100%;
+    height:70px;
+    padding: 5px 10%;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display:grid;
+    grid-gap:5px;
+    grid-template: "Search Location Clear" 25px
+    "Prev Empty Next" 25px / 1fr 1fr 1fr;
+    background: #eee;
+
+}
+
+.pagination-search{
+    grid-area: Search;
+}
+
+.pagination-location{
+    grid-area: Location;
+    text-align:center;
+}
+
+.filter-text{
+    font-weight:700;
+    color:red;
+}
+
+.pagination-clear{
+    grid-area:Clear;
+    text-align:right;
+    cursor: pointer;
+}
+
+.pagination-clear:hover{
+    text-decoration: underline;
+}
+.pagination-prev,
+.pagination-next{
+    cursor: pointer;
+}
+
+.pagination-prev{
+    grid-area: Prev
+}
+
+.pagination-next{
+    grid-area: Next;
+    text-align:right;
+}
+
+
+.pagination-prev:hover,
+.pagination-next:hover{
+    text-decoration: underline;
+}
+
+/******************* JOB CARDS CONTAINER *****************/
+
+.container{
+    width:90%;
+    margin:0 auto;
+padding: 20px;
+display: grid;
+grid-gap: 1rem;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.job-card{
+ background: #fff;
+box-shadow: 5px 5px 20px rgba(0,0,0,0.05);
+border-radius: 24px;
+height:200px;
+max-width:320px;
+padding: 20px 30px;
+display:grid;
+grid-template: "Logo Logo" 60px
+"Company Company" 20px
+"Title Title" 1fr
+"Location Time" 20px / 1fr 1fr;
+}
+
+.company-logo{
+    height:50px;
+    grid-area: Logo;
+    max-width:200px;
+    overflow: hidden;
+
+}
+
+.company-logo img{
+   width:auto;
+   max-width:200px;
+
+}
+
+.company-title{
+    color: var(--lightText);
+    font-size:14px;
+    line-height:20px;
+    grid-area: Company;
+    text-overflow: ellipsis;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.company-title :hover{
+ text-decoration:underline;
+  
+}
+
+.job-title{
+    font-size:16px;
+line-height:20px;
+font-weight: 700;
+grid-area: Title;
+color: #000;
+}
+
+.job-title:hover{
+    text-decoration: underline;
+}
+
+.location-text{
+    grid-area: Location;
+    text-align:left;
+    font-size: 12px;
+    color: var(--lightText);
+line-height:16px;
+}
+
+.location-text span{
+    margin-left:10px;
+}
+
+.location-text i{
+    margin-right:10px;
+    font-size: 12px;
+    line-height:16px;
+}
+
+.time-text{
+    grid-area: Time;
+    text-align:right;
+}
+
+/****************** FOOTER ******************/
+
+footer{
+    width:100%;
+display:grid;
+place-items:center;
+background:white;
+padding: 20px 0;
+}
+
+/********** Job details page **************/
+
+.job-page-container{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.job-page-header{
+    padding: 0 10%;
+    height:60px;
+    background: var(--primary);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.job-page-main{
+    padding: 20px 10%;
+    display:grid;
+    grid-template: "ShareBar ShareBar" 50px
+    "Details Apply" 1fr / 2fr 1fr;
+}
+
+.job-page-share{
+    width:100%;
+    padding: 10px 0;
+    grid-area: ShareBar;
+    display:flex;
+    
+
+}
+
+.job-page-details{
+    width:100%;
+    padding: 20px;
+    grid-area: Details;
+}
+
+.job-page-apply{
+    padding: 20px;
+    grid-area: Apply;
+}
+
+.secondary-text{
+    color: var(--lightText);
+    font-size:14px;
+    line-height: 20px;
+}
+
+.description-box{
+    padding: 20px 0;
+}
+
+.description-text{
+    color: #000;
+    font-size:16px;
+    line-height: 24px;
+}
+.job-company-logo{
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.job-company-logo img{
+    height:50px;
+}
+
+.primary-text{
+    color: var(--primary);
+    font-size: 18px;
+    line-height: 30px;
+    font-weight:700;
+    margin-bottom: 10px;
 }

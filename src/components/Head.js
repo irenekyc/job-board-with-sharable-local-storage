@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 const MetaHead = () => {
     return <Head>
-        <title> Jobify: Dev job search platform</title>
+        <title>  Jobify: Dev job search platform</title>
         <meta property='og:title' content='Jobify: Find your dream developer job' key='ogTitle' />
         <meta property='og:site_name' content='Jobify: Find your dream developer job' key='ogSiteName' />
         <meta

@@ -1,0 +1,9 @@
+
+export const SET_JOBRES = 'SET_JOBRES'
+export const FETCHERROR = "FETCHERROR"
+export const INIT_NEW_SEARCH = "INIT_NEW_SEARCH"
+
+
+export const SET_FILTER_OPTIONS = 'SET_FILTER_OPTIONS'
+export const CLEAR_FILTER = "CLEAR_FILTER"
+export const SET_PAGE = "SET_PAGE"

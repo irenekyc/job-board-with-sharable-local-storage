@@ -1,33 +1,37 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import JobCard from './JobCard';
-// import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import JobCard from './JobCards/JobCard';
+import { useSelector } from 'react-redux';
+import Pagination from './Pagination'
 
+const Main = ({ jobs, error, loading }) => {
+    const [jobData, setJobs] = useState([])
+    const { newSearchLoading, filtered } = useSelector(state => state.jobs)
 
-
-const Main = ({ jobs, loading, error }) => {
     useEffect(() => {
-        console.log(jobs)
+        setJobs(jobs)
+    }, [jobs])
 
-    }, [loading])
-    const MainSection = styled.main`
-    width:100%;
-    height:100%;
-    display:grid;
-    place-items:center;`
-    const Container = styled.div`
-    width:90%;
-    padding: 100px 50px;
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));`
-    return <MainSection>
-        <Container>
-            {loading ? <h2> Loading ...</h2> :
-                jobs.map(job => (<JobCard key={job.id}>{job.title}</JobCard>))}
-        </Container>
-    </MainSection>
+    useEffect(() => {
+        if (newSearchLoading) {
+            setJobs([])
+        }
+    }, [newSearchLoading])
 
+
+    useEffect(() => {
+        setJobs(filtered)
+    }, [filtered])
+
+    return <main>
+        <Pagination />
+        <div className="container">
+            {error ? (<h2>Error</h2>) :
+                loading || newSearchLoading ? (<h2> Loading ...</h2>) :
+                    jobData && jobData.length > 0 ? jobData.map(job => (<JobCard key={job.id} data={job} />)) :
+                        jobData && jobData.length == 0 && (<h2> No result, please go back or clear filters</h2>)
+            }
+        </div>
+    </main>
 }
 
 export default Main;

@@ -1,6 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
 import MetaHead from '../src/components/Head';
-import Layout from '../src/layout/Layout';
 import NavBar from '../src/components/NavBar';
 import Main from '../src/components/Main';
 import Footer from '../src/components/Footer'
@@ -9,32 +8,33 @@ import axios from 'axios'
 const Index = ({ jobs, error }) => {
     const [loading, setLoading] = useState(true);
     const [failed, setError] = useState(false);
-    const [latestJobs, setLatestJob] = useState([]);
+    const [jobsData, setJobs] = useState([]);
 
     useEffect(() => {
-        setLoading(false)
-        setLatestJob(jobs)
+        if (jobs.length > 0) {
+            setLoading(false)
+            setJobs(jobs)
+        }
     }, [jobs])
 
     useEffect(() => {
-        if (error) {
-            setError(true)
-        }
+        setError(error)
+
     }, [error])
 
     return (
         <Fragment>
             <MetaHead />
-            <Layout>
+            <div className="layout">
                 <NavBar />
-                <Main jobs={latestJobs} error={failed} loading={loading} />
+                <Main jobs={jobsData} error={failed} loading={loading} />
                 <Footer />
-            </Layout>
+            </div>
         </Fragment>)
 }
 
 export async function getStaticProps() {
-    const res = await axios.get("https://jobs.github.com/positions.json?page=0");
+    const res = await axios.get("https://jobs.github.com/positions.json?page=1");
     try {
         return {
             props: {
