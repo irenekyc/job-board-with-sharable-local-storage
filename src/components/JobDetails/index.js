@@ -51,8 +51,7 @@ const JobDetailsPage = ({ id, data }) => {
                 <div className="job-page-main">
                     <div className="job-page-share">
                         <p> Share to your friends:  <a href={`https://api.whatsapp.com/send?text=Checkout this job: ${data.title} here: ${data.url}`} target="_blank" data-action="share/whatsapp/share"><span> Whatsapp</span> </a>
-                            <a href={`fb-messenger://share/?link=${data.url}send-dialog&app_id=2710038422561321`} target="_blank"> Send In Messenger</a>
-                            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${id}program&source=LinkedIn`} target="_blank"> LinkedIn</a>
+                            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=https://jobify-peach.vercel.app/details/42280cbe-448f-4902-9034-4703c932a3ba&title=${data.company}+is+Looking+for${data.title}`} target="_blank"> LinkedIn</a>
                         </p>
                     </div>
                     <div className="job-page-details">
