@@ -280,8 +280,25 @@ padding: 20px 0;
     padding: 10px 0;
     grid-area: ShareBar;
     display:flex;
-    
+    line-height:50px;
+}
 
+.fa-whatsapp{
+    color: #4AC959;
+    font-size:24px;
+    margin: 0 10px;
+}
+
+.fa-linkedin{
+    color: #0e76a8;
+    font-size:24px;
+    margin: 0 10px;
+}
+
+.fa-envelope{
+    font-size:24px;
+    margin: 0 10px;
+    color:#D44638
 }
 
 .job-page-details{

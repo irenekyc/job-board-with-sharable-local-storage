@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\n\nconst Footer = () => {\n  return __jsx(\"footer\", null, __jsx(\"p\", null, \"Copyright 2020. Designed and Developed by Irene K.\"));\n};\n\nexport default Footer;","map":null,"metadata":{},"sourceType":"module"}

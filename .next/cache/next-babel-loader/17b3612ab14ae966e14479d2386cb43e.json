@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var SET_JOBRES = 'SET_JOBRES';\nexport var FETCHERROR = \"FETCHERROR\";\nexport var INIT_NEW_SEARCH = \"INIT_NEW_SEARCH\";\nexport var SET_FILTER_OPTIONS = 'SET_FILTER_OPTIONS';\nexport var CLEAR_FILTER = \"CLEAR_FILTER\";\nexport var SET_PAGE = \"SET_PAGE\";","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { combineReducers } from 'redux';\nimport jobs from './jobs';\nimport query from './query';\nvar rootReducer = combineReducers({\n  jobs: jobs,\n  query: query\n});\nexport default rootReducer;","map":null,"metadata":{},"sourceType":"module"}

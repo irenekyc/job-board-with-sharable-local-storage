@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport SearchBar from './SearchBar';\nimport User from './User';\n\nvar NavBar = function NavBar() {\n  return __jsx(\"nav\", null, __jsx(\"span\", null, \" Jobify\"), __jsx(SearchBar, null), __jsx(User, null));\n};\n\nexport default NavBar;","map":null,"metadata":{},"sourceType":"module"}

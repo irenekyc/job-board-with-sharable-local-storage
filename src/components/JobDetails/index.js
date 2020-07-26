@@ -1,10 +1,9 @@
-import { useEffect, Fragment, useState } from "react";
+import { useEffect, Fragment } from "react";
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown'
 import { useRouter } from 'next/router'
 
 const JobDetailsPage = ({ id, data }) => {
-    const [url, setURL] = useState(null)
     const router = useRouter()
 
     useEffect(() => {
@@ -12,7 +11,6 @@ const JobDetailsPage = ({ id, data }) => {
             const history = JSON.parse(localStorage.getItem('broswedJob') || '[]');
             const updatedHistory = history.concat(id);
             localStorage.setItem('broswedJob', JSON.stringify(updatedHistory))
-            console.log(router)
 
         }
 
@@ -33,15 +31,15 @@ const JobDetailsPage = ({ id, data }) => {
                 <meta property='og:site_name' content='Jobify: Find your dream developer job' key='ogSiteName' />
                 <meta
                     name='description'
-                    content='Find your dream developer job in here, we offer job search specialised in developer, remote, paid relocation opportunities!'
+                    content={`${data.company} is looking for ${data.title}`}
                     key='description'
                 />
                 <meta
                     property='og:description'
-                    content='Find your dream developer job in here, we offer job search specialised in developer, remote, paid relocation opportunities!'
+                    content={`${data.company} is looking for ${data.title}`}
                     key='ogDescription'
                 />
-                <meta property='og:image' content='' key='ogImage' />
+                {/* <meta property='og:image' content='' key='ogImage' /> */}
                 <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet"></link>
             </Head>
             <div className="job-page-container">
@@ -50,8 +48,9 @@ const JobDetailsPage = ({ id, data }) => {
                 </div>
                 <div className="job-page-main">
                     <div className="job-page-share">
-                        <p> Share to your friends:  <a href={`https://api.whatsapp.com/send?text=Checkout this job: ${data.title} here: ${data.url}`} target="_blank" data-action="share/whatsapp/share"><span> Whatsapp</span> </a>
-                            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=https://jobify-peach.vercel.app/details/42280cbe-448f-4902-9034-4703c932a3ba&title=${data.company}+is+Looking+for${data.title}`} target="_blank"> LinkedIn</a>
+                        <p> Share to your friends:  <a href={`https://api.whatsapp.com/send?text=Checkout this job: ${data.title} here: ${data.url}`} target="_blank" data-action="share/whatsapp/share"><span> <i className="fab fa-whatsapp"></i></span> </a>
+                            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=https://jobify-peach.vercel.app/details/${id}&title=${data.company}+is+Looking+for${data.title}source=jobify-peach.vercel.app`} target="_blank"> <i className="fab fa-linkedin"></i></a>
+                            <a href={`mailto:?&subject=${data.company}%20is%20looking%20for%20${data.title}&body=Check%20this%20out%20\nhttps://jobify-peach.vercel.app/details/${id}&title=${data.company}+is+Looking+for${data.title}`}> <i className="fas fa-envelope"></i></a>
                         </p>
                     </div>
                     <div className="job-page-details">
