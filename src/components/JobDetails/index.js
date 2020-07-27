@@ -9,9 +9,12 @@ const JobDetailsPage = ({ id, data }) => {
 
     useEffect(() => {
         if (data) {
+            const maxHistoryLength = 5;
             const history = JSON.parse(localStorage.getItem('testingBrowsed') || '[]');
-            console.log(history)
-            const updatedHistory = history.concat({ id: id, title: data.title, company: data.company })
+            const isHistoryMaxed = history.length === maxHistoryLength;
+            const workingHistory = isHistoryMaxed ? history.slice(1) : history;
+
+            const updatedHistory = workingHistory.concat({ id: id, title: data.title, company: data.company });
             localStorage.setItem('testingBrowsed', JSON.stringify(updatedHistory))
         }
     }, [data])
