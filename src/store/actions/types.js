@@ -7,3 +7,6 @@ export const INIT_NEW_SEARCH = "INIT_NEW_SEARCH"
 export const SET_FILTER_OPTIONS = 'SET_FILTER_OPTIONS'
 export const CLEAR_FILTER = "CLEAR_FILTER"
 export const SET_PAGE = "SET_PAGE"
+
+export const OPEN_USER_AREA = 'OPEN_USER_AREA'
+export const CLOSE_USER_AREA = 'CLOSE_USER_AREA'

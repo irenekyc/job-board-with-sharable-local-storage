@@ -1,14 +1,17 @@
 
 import SearchBar from './SearchBar';
-import User from './User'
-
-
+import { useDispatch } from 'react-redux';
+import { open_user_area } from '../store/actions/user'
 
 const NavBar = () => {
+    const dispatch = useDispatch()
     return <nav>
-        <span> Jobify</span>
+        <span className="main-logo"> Jobify</span>
         <SearchBar />
-        <User />
+        <div className="user-area" onClick={() => dispatch(open_user_area())}>
+            <i className="far fa-user" ></i>
+        </div>
+
     </nav>
 
 }

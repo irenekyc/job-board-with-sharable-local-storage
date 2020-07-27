@@ -6,12 +6,7 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers'
 
 const initialState = {
-    // initialJobs: [],
-    // jobsRes: [],
-    // filter: {
-    //     searchQuery: "",
-    //     locationQuery: ""
-    // }
+
 }
 
 const middleware = [thunk]

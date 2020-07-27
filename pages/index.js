@@ -1,8 +1,10 @@
 import { Fragment, useState, useEffect } from 'react';
+
 import MetaHead from '../src/components/Head';
 import NavBar from '../src/components/NavBar';
 import Main from '../src/components/Main';
 import Footer from '../src/components/Footer'
+import UserArea from '../src/components/UserArea';
 import axios from 'axios'
 
 const Index = ({ jobs, error }) => {
@@ -19,7 +21,6 @@ const Index = ({ jobs, error }) => {
 
     useEffect(() => {
         setError(error)
-
     }, [error])
 
     return (
@@ -29,6 +30,7 @@ const Index = ({ jobs, error }) => {
                 <NavBar />
                 <Main jobs={jobsData} error={failed} loading={loading} />
                 <Footer />
+                <UserArea />
             </div>
         </Fragment>)
 }

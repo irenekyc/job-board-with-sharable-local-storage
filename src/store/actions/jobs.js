@@ -12,7 +12,7 @@ export const newSearch = () => async dispatch => {
 
 }
 export const getData = (searchQuery, locationQuery, page = 1) => async dispatch => {
-    const res = await axios.get(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?title=${searchQuery}&location=${locationQuery}&page=${page}`)
+    const res = await axios.get(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?search=${searchQuery}&location=${locationQuery}&page=${page}`)
 
     try {
 

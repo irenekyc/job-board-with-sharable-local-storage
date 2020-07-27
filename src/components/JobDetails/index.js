@@ -2,20 +2,19 @@ import { useEffect, Fragment } from "react";
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown'
 import { useRouter } from 'next/router'
+import { getDisplayName } from "next/dist/next-server/lib/utils";
 
 const JobDetailsPage = ({ id, data }) => {
     const router = useRouter()
 
     useEffect(() => {
-        if (id) {
-            const history = JSON.parse(localStorage.getItem('broswedJob') || '[]');
-            const updatedHistory = history.concat(id);
-            localStorage.setItem('broswedJob', JSON.stringify(updatedHistory))
-
+        if (data) {
+            const history = JSON.parse(localStorage.getItem('testingBrowsed') || '[]');
+            console.log(history)
+            const updatedHistory = history.concat({ id: id, title: data.title, company: data.company })
+            localStorage.setItem('testingBrowsed', JSON.stringify(updatedHistory))
         }
-
-
-    }, [id])
+    }, [data])
     const calculateTime = (createdAt) => {
         const now = new Date()
         const difference = now - new Date(createdAt)
