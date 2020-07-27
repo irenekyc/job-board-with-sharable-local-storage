@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import '@fortawesome/fontawesome-free/js/fontawesome';
-import '@fortawesome/fontawesome-free/js/solid';
+
 
 const calculateTime = (createdAt) => {
     const now = new Date()

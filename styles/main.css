@@ -7,10 +7,6 @@ body{
     font-family: monospace;
     color: var(--lightText);
     background: #EEEEEE;
-    display:grid;
-min-height: 100vh;
-width:100vw;
-grid-template-rows: 1fr 60px
 }
 
 h1, h2, h3{
@@ -33,7 +29,7 @@ img{
 
 nav{
     display:grid;
-grid-template-columns: 100px 1fr 50px;
+    grid-template: "Logo SearchBar User" / 100px 1fr 50px;
 place-items:center;
 top:0;
 left:0;
@@ -45,15 +41,24 @@ height: 60px;
 background: white;
 }
 
+
+
 .main-logo{
     font-family: 'Monofett', 'sans-serif';
     color: var(--primary);
     font-size: 36px;
     line-height: 60px;
     cursor: pointer;
+    grid-area: Logo
 }
 
-
+.search-bar{
+    grid-area: SearchBar;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .input-bar{
     outline: none;
@@ -93,6 +98,7 @@ cursor: pointer;
     font-size: 24px;
     line-height:60px;
     color: var(--primary);
+    grid-area: User;
 }
 .user-area .fa-user{
     cursor: pointer;
@@ -173,11 +179,10 @@ place-items:center;
 
 .container{
     width:90%;
-    margin:0 auto;
-padding: 20px;
+    margin:20px auto;
 display: grid;
 grid-gap: 1rem;
-grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
 .job-card{
@@ -185,7 +190,7 @@ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 box-shadow: 5px 5px 20px rgba(0,0,0,0.05);
 border-radius: 24px;
 height:200px;
-max-width:320px;
+/* max-width:320px; */
 padding: 20px 30px;
 display:grid;
 grid-template: "Logo Logo" 60px
@@ -362,12 +367,6 @@ padding: 20px 0;
     margin-bottom: 10px;
 }
 
-/************** LAYOUT *******************/
-.layout{
-    width:100%;
-    height:100%;
-}
-
 /*************** USER-AREA-MODAL **************/
 
 .user-area-modal{
@@ -440,4 +439,38 @@ margin:10px 0;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.05);
 }
 
+@media (max-width: 900px){
+    nav{
+        height: 100px;
+        grid-template: "Logo User" 50px
+        "SearchBar SearchBar" 50px/ 1fr 50px;
+    }
 
+    .main-logo{
+        text-align:left;
+    }
+    .user-area{
+        text-align:right;
+    }
+    .pagination-row{
+        top:100px;
+    }
+}
+
+@media (max-width: 600px){
+    nav{
+        height: 130px;
+        grid-template: "Logo User" 50px
+        "SearchBar SearchBar" 80px/ 1fr 50px;
+    }
+    .pagination-row{
+        top:130px;
+    }
+    .search-button{
+        margin:10px;
+    }
+
+    main{
+        padding-top: 180px;
+    }
+}

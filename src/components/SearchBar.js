@@ -33,7 +33,7 @@ const SearchBar = () => {
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form className="search-bar" onSubmit={submitHandler}>
 
             <input className="input-bar" type="text" placeholder="Job Title, Company name" name="searchQuery"
                 value={searchQuery}

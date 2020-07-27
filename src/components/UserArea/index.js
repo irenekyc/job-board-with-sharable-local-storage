@@ -23,7 +23,7 @@ const UserArea = () => {
         }
     }, [userAreaOpen])
     return <div className={`user-area-modal ${expand}`}>
-        <p className="close-user-area-div" onClick={() => dispatch(close_user_area())}><i className="fas fa-arrow-left"></i> </p>
+        <div className="close-user-area-div" onClick={() => dispatch(close_user_area())}><i className="fas fa-arrow-left"></i> </div>
         <div className="user-area-user_info">
             <div className="user-area-user_info_pic">
                 <i className="far fa-user" ></i>
